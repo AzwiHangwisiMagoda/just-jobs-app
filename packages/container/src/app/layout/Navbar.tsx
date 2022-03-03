@@ -6,19 +6,19 @@ export default function Navbar() {
 		<Menu inverted fixed='top'>
 			<Container>
 				<Menu.Item exact header>
-					<img src='/logo.png' alt='logo' style={{ marginRight: 10 }} />
+					<img src='public/logo.png' alt='logo' style={{ marginRight: 10 }} />
 					Just Jobs
 				</Menu.Item>
 
-				{/* <Menu.Item name='Vacancy' as={NavLink} to='/vacancies' /> */}
+				<Menu.Item name='Vacancy' />
 
 				<Menu.Item position='right'>
 					<Menu.Item>
-						<Search placeholder='Search...' style={{ marginRight: '2px' }} />
+						<Search placeholder='Search...' />
 					</Menu.Item>
 
 					<Menu.Item>
-						<Image src={'/user.png'} avatar spaced='right' />
+						<Image src={'public/user.png'} avatar spaced='right' />
 						<Dropdown pointing='top left'>
 							<Dropdown.Menu>
 								<Dropdown.Item text='My Profile' icon='user' />

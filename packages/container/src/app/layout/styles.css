@@ -5,9 +5,6 @@ body {
 
 .ui.inverted.top.fixed.menu {
 	background-color: #002c3d;
-	padding: 5px 10px;
-}
-
-.ui.menu .item {
-	padding: 5px 10px;
+	margin: 0;
+	padding: 0;
 }
