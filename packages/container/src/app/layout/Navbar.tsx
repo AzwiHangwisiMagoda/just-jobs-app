@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Menu, Image, Dropdown, Search } from 'semantic-ui-react';
 
 export default function Navbar() {
 	return (
 		<Menu inverted fixed='top'>
 			<Container>
-				<Menu.Item header>
+				<Menu.Item header as={Link} to='/'>
 					<img src='public/logo.png' alt='logo' style={{ marginRight: 10 }} />
 					Just Jobs
 				</Menu.Item>
 
-				<Menu.Item name='Vacancy' />
+				<Menu.Item name='Vacancy' as={Link} to='/vacancy' />
 
 				<Menu.Item position='right'>
 					<Menu.Item>
