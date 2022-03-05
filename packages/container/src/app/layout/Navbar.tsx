@@ -5,7 +5,7 @@ export default function Navbar() {
 	return (
 		<Menu inverted fixed='top'>
 			<Container>
-				<Menu.Item exact header>
+				<Menu.Item header>
 					<img src='public/logo.png' alt='logo' style={{ marginRight: 10 }} />
 					Just Jobs
 				</Menu.Item>
