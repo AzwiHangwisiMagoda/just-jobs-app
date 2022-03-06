@@ -5,11 +5,7 @@ import { Container } from 'semantic-ui-react';
 import VacancyDasboard from '../../features/vacancy/dashboard/VacancyDashboard';
 import VacancyDetail from '../../features/vacancy/details/VacancyDetail';
 
-interface Props {
-	history: any;
-}
-
-function App({ history }: Props) {
+function App({ history }: any) {
 	return (
 		<Container style={{ marginTop: '100px' }}>
 			<Router history={history}>

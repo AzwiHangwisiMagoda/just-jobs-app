@@ -1,0 +1,11 @@
+.auth_app_style {
+	background-image: linear-gradient(
+		135deg,
+		rgb(26, 62, 76) 0%,
+		rgb(103, 175, 203) 69%,
+		rgb(228, 241, 246) 89%
+	) !important;
+	color: #f2f2f2;
+	text-align: center !important;
+	letter-spacing: 2px;
+}
