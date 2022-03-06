@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from 'react';
 import { createBrowserHistory } from 'history';
 import { Router, Route, Switch } from 'react-router-dom';
+import LoadingComponent from './LoadingComponent';
+import Navbar from './Navbar';
 
 const VacancyLazy = lazy(() => import('../../features/VacancyApp'));
-const NavbarLazy = lazy(() => import('./Navbar'));
 const history = createBrowserHistory();
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
 		<>
 			{/* <Navbar /> */}
 			<Router history={history}>
-				<Suspense fallback={<div>Losding...</div>}>
-					<NavbarLazy />
+				<Suspense fallback={<LoadingComponent />}>
+					<Navbar />
 					<Switch>
 						<Route path='/vacancy' component={VacancyLazy} />
 					</Switch>

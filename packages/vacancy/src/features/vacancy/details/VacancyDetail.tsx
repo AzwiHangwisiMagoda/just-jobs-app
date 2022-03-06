@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button, Container, Grid, Header, Segment } from 'semantic-ui-react';
+import { Button, Grid, Segment } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
 import VacancyDetailRecruiterInfo from './VacancyDetailRecruiterInfo';
 import VacancyDetailHeader from './VacancyDetailHeader';

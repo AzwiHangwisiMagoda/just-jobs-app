@@ -4,7 +4,7 @@ import { Container, Menu, Image, Dropdown, Search } from 'semantic-ui-react';
 
 export default function Navbar() {
 	return (
-		<Menu inverted fixed='top'>
+		<Menu inverted fixed='top' style={{ height: '70px' }}>
 			<Container>
 				<Menu.Item header as={Link} to='/'>
 					<img src='public/logo.png' alt='logo' style={{ marginRight: 10 }} />

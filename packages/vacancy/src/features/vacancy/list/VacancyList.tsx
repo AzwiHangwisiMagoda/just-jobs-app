@@ -16,8 +16,8 @@ export default observer(function VacancyList() {
 					<Item key={i} style={{ paddingBottom: '15px' }}>
 						<Item.Content>
 							<Item.Header
-								// as={Link}
-								// to={`/vacancy/${vacancy.id}`}
+								as={Link}
+								to={`/vacancy/${vacancy.id}`}
 								style={{ color: '#1D3D49' }}
 							>
 								{vacancy.title}
