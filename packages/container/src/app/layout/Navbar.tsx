@@ -7,7 +7,7 @@ export default function Navbar() {
 		<Menu inverted fixed='top' style={{ height: '70px' }}>
 			<Container>
 				<Menu.Item header as={Link} to='/'>
-					<img src='public/logo.png' alt='logo' style={{ marginRight: 10 }} />
+					<img src='/public/logo.png' alt='logo' style={{ marginRight: 10 }} />
 					Just Jobs
 				</Menu.Item>
 
@@ -19,7 +19,7 @@ export default function Navbar() {
 					</Menu.Item>
 
 					<Menu.Item>
-						<Image src={'public/user.png'} avatar spaced='right' />
+						<Image src={'/public/user.png'} avatar spaced='right' />
 						<Dropdown pointing='top left'>
 							<Dropdown.Menu>
 								<Dropdown.Item text='My Profile' icon='user' />

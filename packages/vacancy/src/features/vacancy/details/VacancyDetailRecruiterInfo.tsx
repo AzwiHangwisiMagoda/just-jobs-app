@@ -19,7 +19,7 @@ export default observer(function VacancyDetailRecruiterInfo() {
 			>
 				<Item>
 					<Item.Content style={{ paddingBottom: '5px' }}>
-						<Image size='medium' src='/user.png' centered circular />
+						<Image size='medium' src='/public/user.png' centered circular />
 					</Item.Content>
 					<Divider></Divider>
 					<Item.Content>
