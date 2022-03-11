@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { createBrowserHistory } from 'history';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
-import LoadingComponent from './LoadingComponent';
-import Navbar from './Navbar';
 import { Container } from 'semantic-ui-react';
 import { useCookies } from 'react-cookie';
+import LoadingComponent from './LoadingComponent';
+import Navbar from './Navbar';
 import { ParseToken } from '../common/tokenParser';
 import { Token } from '../models/token';
 
@@ -19,17 +19,18 @@ function App() {
 	const [token, setToken] = useState<Token>();
 
 	const signOut = () => {
-		removeCookie('token', { path: '/', domain: 'localhost:8080' });
+		removeCookie('token', null, { domain: 'localhost', path: '/' });
 		setIsSignedIn(false);
-		console.log(cookies.token);
+		setToken(undefined);
 	};
 
-	useEffect(() => {
-		if (isSignedIn) {
+	const signIn = () => {
+		if (cookies.token !== 'null') {
+			setIsSignedIn(true);
 			setToken(ParseToken(cookies.token));
 			history.push('/vacancy');
 		}
-	}, [isSignedIn, cookies]);
+	};
 
 	return (
 		<Container fluid className='container'>
@@ -37,12 +38,12 @@ function App() {
 				<Suspense fallback={<LoadingComponent />}>
 					<Switch>
 						<Route path='/auth'>
-							<AuthLazy onSignIn={() => setIsSignedIn(true)} />
+							<AuthLazy onSignIn={() => signIn()} isSignedIn={isSignedIn} />
 						</Route>
 						{!isSignedIn && <Redirect to='/auth' />}
 						{isSignedIn && token && (
 							<>
-								<Navbar token={token} onSignOut={signOut} />
+								<Navbar token={token} onSignOut={() => signOut()} />
 								<Route path='/vacancy'>
 									{token.role === 'JobSeeker' && <VacancyLazy />}
 								</Route>

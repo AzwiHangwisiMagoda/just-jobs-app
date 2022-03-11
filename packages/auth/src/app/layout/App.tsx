@@ -7,18 +7,24 @@ import ModalContainer from '../common/modals/ModalContainer';
 import { useStore } from '../stores/store';
 import { useCookies } from 'react-cookie';
 
-function App({ history, onSignIn }: any) {
+function App({ history, onSignIn, isSignedIn }: any) {
 	const {
-		authStore: { user },
+		authStore: { user, logout },
 	} = useStore();
 
 	const [cookies, setCookie] = useCookies(['token']);
 
 	useEffect(() => {
 		if (user) {
-			setCookie('token', user.token, { path: '/' });
+			setCookie('token', user.token, { domain: 'localhost', path: '/' });
 		}
-	}, [user, setCookie, cookies]);
+	}, [user, setCookie]);
+
+	useEffect(() => {
+		if (!isSignedIn) {
+			logout();
+		}
+	}, [isSignedIn, logout]);
 
 	return (
 		<Container

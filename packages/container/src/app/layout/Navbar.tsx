@@ -4,7 +4,7 @@ import { Container, Menu, Image, Dropdown, Search } from 'semantic-ui-react';
 import { Token } from '../models/token';
 
 interface Props {
-	token: Token | undefined;
+	token: Token;
 	onSignOut: any;
 }
 
@@ -39,7 +39,7 @@ export default function Navbar({ token, onSignOut }: Props) {
 								<Dropdown.Item
 									text='Logout'
 									icon='power'
-									onClick={() => signOut()}
+									onClick={async () => signOut()}
 								/>
 							</Dropdown.Menu>
 						</Dropdown>

@@ -7,7 +7,12 @@ import App from './app/layout/App';
 import { CookiesProvider } from 'react-cookie';
 
 //@ts-ignore
-const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
+const mount = (
+	//@ts-ignore
+	el,
+	//@ts-ignore
+	{ isSignedIn, onSignIn, onNavigate, defaultHistory, initialPath }
+) => {
 	const history =
 		defaultHistory ||
 		createMemoryHistory({
@@ -19,7 +24,7 @@ const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
 	}
 	ReactDOM.render(
 		<CookiesProvider>
-			<App onSignIn={onSignIn} history={history} />
+			<App onSignIn={onSignIn} history={history} isSignedIn={isSignedIn} />
 		</CookiesProvider>,
 		el
 	);

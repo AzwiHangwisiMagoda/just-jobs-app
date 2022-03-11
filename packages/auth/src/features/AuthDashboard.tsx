@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { Button, Container, Header } from 'semantic-ui-react';
 import { useStore } from '../app/stores/store';
 import LoginForm from './login/LoginForm';
+import RegisterForm from './register/RegisterForm';
 
 export default observer(function AuthDashboard({ onSignIn }: any) {
 	const {
@@ -37,7 +38,7 @@ export default observer(function AuthDashboard({ onSignIn }: any) {
 			<Button
 				content='Register'
 				size='huge'
-				onClick={() => openModal(<LoginForm />)}
+				onClick={() => openModal(<RegisterForm onSignIn={onSignIn} />)}
 				style={{
 					color: '#003347',
 				}}
