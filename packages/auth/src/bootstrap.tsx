@@ -4,18 +4,25 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import 'semantic-ui-css/semantic.min.css';
 import './app/layout/styles.css';
 import App from './app/layout/App';
+import { CookiesProvider } from 'react-cookie';
 
 //@ts-ignore
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
 	const history =
 		defaultHistory ||
 		createMemoryHistory({
 			initialEntries: [initialPath],
 		});
+
 	if (onNavigate) {
 		history.listen(onNavigate);
 	}
-	ReactDOM.render(<App history={history} />, el);
+	ReactDOM.render(
+		<CookiesProvider>
+			<App onSignIn={onSignIn} history={history} />
+		</CookiesProvider>,
+		el
+	);
 
 	return {
 		onParentNavigate({ pathname: nextPathname }: any) {

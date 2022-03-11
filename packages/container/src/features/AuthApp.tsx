@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { mount } from 'auth/AuthApp';
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
+export default ({ onSignIn }: any) => {
 	const ref = useRef(null);
 	const history = useHistory();
 
@@ -18,10 +18,11 @@ export default () => {
 					history.push(nextPathname);
 				}
 			},
+			onSignIn,
 		});
 
 		history.listen(onParentNavigate);
-	}, []);
+	});
 
 	return <div ref={ref} />;
 };

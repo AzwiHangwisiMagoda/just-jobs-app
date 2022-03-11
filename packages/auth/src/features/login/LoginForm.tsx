@@ -5,7 +5,7 @@ import { ErrorMessage, Form, Formik } from 'formik';
 import MyTextInput from '../../app/common/form/MyTextInput';
 import { Button, Header, Label } from 'semantic-ui-react';
 
-export default observer(function LoginForm() {
+export default observer(function LoginForm({ onSignIn }: any) {
 	const {
 		authStore: { login },
 	} = useStore();
@@ -50,6 +50,7 @@ export default observer(function LoginForm() {
 						content='Login'
 						type='submit'
 						fluid
+						onClick={onSignIn}
 					/>
 				</Form>
 			)}

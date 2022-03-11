@@ -3,7 +3,7 @@ import { Button, Container, Header } from 'semantic-ui-react';
 import { useStore } from '../app/stores/store';
 import LoginForm from './login/LoginForm';
 
-export default observer(function AuthDashboard() {
+export default observer(function AuthDashboard({ onSignIn }: any) {
 	const {
 		modalStore: { openModal },
 	} = useStore();
@@ -27,7 +27,7 @@ export default observer(function AuthDashboard() {
 			<Button
 				content='Login'
 				size='huge'
-				onClick={() => openModal(<LoginForm />)}
+				onClick={() => openModal(<LoginForm onSignIn={onSignIn} />)}
 				style={{
 					backgroundColor: '#003347',
 					color: '#f2f2f2',

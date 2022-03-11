@@ -15,13 +15,11 @@ export default class AuthStore {
 		try {
 			const user = await agent.Account.login(login);
 
-			//set token
-
 			runInAction(() => {
 				this.user = user;
 			});
-			console.log(user);
-			//history.push('/vacancy');
+
+			store.modalStore.closeModal();
 		} catch (error) {
 			console.log(error);
 		}
