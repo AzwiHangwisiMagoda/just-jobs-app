@@ -15,8 +15,14 @@ const history = createBrowserHistory();
 
 function App() {
 	const [isSignedIn, setIsSignedIn] = useState(false);
-	const [cookies] = useCookies(['token']);
+	const [cookies, removeCookie] = useCookies(['token']);
 	const [token, setToken] = useState<Token>();
+
+	const signOut = () => {
+		removeCookie('token', { path: '/', domain: 'localhost:8080' });
+		setIsSignedIn(false);
+		console.log(cookies.token);
+	};
 
 	useEffect(() => {
 		if (isSignedIn) {
@@ -36,7 +42,7 @@ function App() {
 						{!isSignedIn && <Redirect to='/auth' />}
 						{isSignedIn && token && (
 							<>
-								<Navbar token={token} />
+								<Navbar token={token} onSignOut={signOut} />
 								<Route path='/vacancy'>
 									{token.role === 'JobSeeker' && <VacancyLazy />}
 								</Route>

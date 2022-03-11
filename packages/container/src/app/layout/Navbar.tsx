@@ -5,9 +5,16 @@ import { Token } from '../models/token';
 
 interface Props {
 	token: Token | undefined;
+	onSignOut: any;
 }
 
-export default function Navbar({ token }: Props) {
+export default function Navbar({ token, onSignOut }: Props) {
+	const signOut = () => {
+		if (onSignOut) {
+			onSignOut();
+		}
+	};
+
 	return (
 		<Menu inverted fixed='top' style={{ height: '70px' }}>
 			<Container>
@@ -29,7 +36,11 @@ export default function Navbar({ token }: Props) {
 							<Dropdown.Menu>
 								<Dropdown.Item text='My Profile' icon='user' />
 								<Dropdown.Item text='My Listings' icon='list' />
-								<Dropdown.Item text='Logout' icon='power' />
+								<Dropdown.Item
+									text='Logout'
+									icon='power'
+									onClick={() => signOut()}
+								/>
 							</Dropdown.Menu>
 						</Dropdown>
 					</Menu.Item>
